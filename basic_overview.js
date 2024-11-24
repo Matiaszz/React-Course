@@ -28,7 +28,7 @@ export default function App() {
   );
 }
 
-// The react functions are captalized for conventional
+// The react functions are captalized for conventional practice
 function Message(props) {
   return (
     <p>
