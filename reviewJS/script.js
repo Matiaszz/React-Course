@@ -245,5 +245,10 @@ const frequencyTable = words.reduce((time, word) => {
   return time;
 }, {})
 
-log(frequencyTable)
+const x = [1, 45, 3, 2, 4, 356, 2, 43, 431, 12, 6]
 
+const minorToHigher = x.slice().sort((a, b) => a - b)
+log(minorToHigher)
+
+const sortByPages = books.slice().sort((a, b) => a.pages - b.pages)
+log(sortByPages)
