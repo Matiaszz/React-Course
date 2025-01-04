@@ -248,10 +248,10 @@ const frequencyTable = words.reduce((time, word) => {
 const x = [1, 45, 3, 2, 4, 356, 2, 43, 431, 12, 6]
 
 const minorToHigher = x.slice().sort((a, b) => a - b)
-log(minorToHigher)
+// log(minorToHigher)
 
 const sortByPages = books.slice().sort((a, b) => a.pages - b.pages)
-log(sortByPages)
+// log(sortByPages)
 
 
 const newBook = {
@@ -263,9 +263,12 @@ const newBook = {
 
 const booksAfterAdd = [...books, newBook];
 
-const booksAfterUpdate = booksAfterDelete
-  .map((book) => book.id === 4 ? { ...book, pages: 99999999999999999 } : book)
-log(booksAfterUpdate)
+// const booksAfterUpdate = booksAfterDelete
+//   .map((book) => book.id === 4 ? { ...book, pages: 99999999999999999 } : book)
 
 const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+
+const request = fetch('https://jsonplaceholder.typicode.com/todos')
+  .then((response) => response.json())
+  .then((data) => log(data))
 
