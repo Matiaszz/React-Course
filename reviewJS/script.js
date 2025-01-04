@@ -252,3 +252,20 @@ log(minorToHigher)
 
 const sortByPages = books.slice().sort((a, b) => a.pages - b.pages)
 log(sortByPages)
+
+
+const newBook = {
+  id: 6,
+  title: 'Harry Potter and the chamber of secrets',
+  author: 'me, obviously'
+
+}
+
+const booksAfterAdd = [...books, newBook];
+
+const booksAfterUpdate = booksAfterDelete
+  .map((book) => book.id === 4 ? { ...book, pages: 99999999999999999 } : book)
+log(booksAfterUpdate)
+
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+
