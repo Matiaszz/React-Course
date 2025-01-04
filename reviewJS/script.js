@@ -137,13 +137,8 @@ const data = [
 
 
 const log = console.log
-function getBooks() {
-  return data;
-}
-
-function getBook(id) {
-  return data.find((d) => d.id === id);
-}
+const getBooks = () => data
+const getBook = (id) => data.find((d) => d.id === id);
 
 // destructuring
 
@@ -196,7 +191,7 @@ const summary = `${updatedBook.title} is a book with ${pages} pages and publishe
 summary
 
 const pagesRange = pages > 1000 ? 'over a thousand' : 'less than thousand';
-log(pagesRange)
+// log(pagesRange)
 
 // Arrow functions
 // its good to make 1 line functions
@@ -216,4 +211,27 @@ function getTotalReviewCount(book) {
   return goodreads + librarything
 }
 
-log(getTotalReviewCount(book))
+// log(getTotalReviewCount(book))
+
+
+// array maps
+
+// log([1, 2, 3, 4, 5, 6].map((item) => item * 2));
+
+
+const books = getBooks();
+const titles = books.map((book) => book.title)
+// log(titles)
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getTotalReviewCount(book)
+})
+)
+
+log(essentialData)
+
+
+// for each item in array, duplicate the value
+
