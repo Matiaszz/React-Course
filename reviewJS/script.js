@@ -202,13 +202,18 @@ log(pagesRange)
 // its good to make 1 line functions
 
 const getYear = (book) => book.split('-')[0];
-log(getYear(publicationDate))
-
 
 const portugueseTranslation = book.translations.portuguese || 'Not translated';
-log(portugueseTranslation)
 
 
-/// returns the second value if the first value is null or undefined
+// returns the second value if the first value is null or undefined
 const questionMark = book.reviews.reviewsCount ?? 'no data'
-log(questionMark)
+
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews.goodreads.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+
+  return goodreads + librarything
+}
+
+log(getTotalReviewCount(book))
