@@ -136,8 +136,8 @@ const data = [
 ];
 
 
-const log = console.log
-const getBooks = () => data
+const log = console.log;
+const getBooks = () => data;
 const getBook = (id) => data.find((d) => d.id === id);
 
 // destructuring
@@ -221,7 +221,7 @@ function getTotalReviewCount(book) {
 
 
 const books = getBooks();
-const titles = books.map((book) => book.title)
+
 // log(titles)
 
 const essentialData = books.map((book) => ({
@@ -235,9 +235,15 @@ const essentialData = books.map((book) => ({
 const longBooks = books.filter((book) => getTotalReviewCount(book) > 200)
 // log(longBooks)
 
-
-
-// const name = array.reduce((accumulator, arrayObject) => accumulator + arrayObject.intAttr, 0 <-- initial value)
 const pagesAllBooks = books.reduce((accumulator, book) => accumulator + book.pages, 0)
-log(pagesAllBooks)
+const titles = books.map((book) => book.title)
+const words = titles.flatMap((title) => title.split(" "));
+
+const frequencyTable = words.reduce((time, word) => {
+  const lowerWord = word.toString().toLowerCase();
+  time[lowerWord] = (time[lowerWord] || 0) + 1;
+  return time;
+}, {})
+
+log(frequencyTable)
 
