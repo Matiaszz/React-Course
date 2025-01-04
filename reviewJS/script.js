@@ -233,6 +233,11 @@ const essentialData = books.map((book) => ({
 // log(essentialData)
 
 const longBooks = books.filter((book) => getTotalReviewCount(book) > 200)
-log(longBooks)
+// log(longBooks)
 
+
+
+// const name = array.reduce((accumulator, arrayObject) => accumulator + arrayObject.intAttr, 0 <-- initial value)
+const pagesAllBooks = books.reduce((accumulator, book) => accumulator + book.pages, 0)
+log(pagesAllBooks)
 
