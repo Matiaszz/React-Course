@@ -268,13 +268,56 @@ const booksAfterAdd = [...books, newBook];
 
 const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
 
-const request = fetch('https://jsonplaceholder.typicode.com/todos')
-  .then((response) => response.json())
-  .then((data) => log(data))
+// const request = fetch('https://jsonplaceholder.typicode.com/todos')
+//   .then((response) => response.json())
+//   .then((data) => log(data))
 
 
 async function getAPI() {
-  const data = await fetch('https://jsonplaceholder.typicode.com/todos').json()
-  log(data)
-  return data
+  const data = await fetch('https://jsonplaceholder.typicode.com/todos').json();
+  // log(data)
+  return data;
 }
+
+const getBooksInCinemaAndLong = books.filter((book) => book.pages > 500 && book.hasMovieAdaptation);
+const getBooksTitles = getBooksInCinemaAndLong.map((book) => book.title);
+
+function buttonClick() {
+  const ul = document.getElementById('booksList');
+
+  ul.innerHTML = '';
+  books.forEach(book => {
+    const li = document.createElement('li');
+    li.textContent = book.title;
+    ul.appendChild(li);
+  });
+}
+
+const renderBook = (book) => {
+  const object = {
+    title: book.title,
+    author: book.author,
+    pages: book.pages,
+    hasMovieAdaptation: book.hasMovieAdaptation
+  }
+  const div = document.getElementById('div')
+  div.innerHTML = '';
+
+  const title = document.createElement('h2');
+  const author = document.createElement('p');
+  const pages = document.createElement('p');
+  const hasMovieAdaptation2 = document.createElement('p');
+
+  title.textContent = object.title;
+  author.textContent = object.author;
+  pages.textContent = object.pages;
+  hasMovieAdaptation2.textContent = object.hasMovieAdaptation ? 'Has movie adaptation' : 'Dont has movie adaptation'
+
+  div.appendChild(title)
+  div.appendChild(author)
+  div.appendChild(pages)
+  div.appendChild(hasMovieAdaptation2)
+
+  return div
+}
+renderBook(data[1])
