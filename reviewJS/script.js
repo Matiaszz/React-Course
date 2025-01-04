@@ -216,6 +216,7 @@ function getTotalReviewCount(book) {
 
 // array maps
 
+// for each item in array, duplicate the value
 // log([1, 2, 3, 4, 5, 6].map((item) => item * 2));
 
 
@@ -227,11 +228,11 @@ const essentialData = books.map((book) => ({
   title: book.title,
   author: book.author,
   reviewsCount: getTotalReviewCount(book)
-})
-)
+}))
 
-log(essentialData)
+// log(essentialData)
 
+const longBooks = books.filter((book) => getTotalReviewCount(book) > 200)
+log(longBooks)
 
-// for each item in array, duplicate the value
 
