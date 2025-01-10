@@ -130,6 +130,3 @@ root.render(
     </React.StrictMode>
 
 );
-
-// react before
-// React.render(<App />)
