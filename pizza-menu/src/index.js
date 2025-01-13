@@ -96,10 +96,6 @@ function Menu() {
                 <div>We're working on our menu. Please come back later.</div>
             )
             }
-
-
-
-
         </main>
     )
 }
